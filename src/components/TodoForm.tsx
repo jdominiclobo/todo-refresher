@@ -19,7 +19,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="TodoForm" onSubmit={handleSubmit}>
       <input
         type="text"
         value={value}
