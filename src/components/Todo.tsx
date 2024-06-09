@@ -11,9 +11,16 @@ interface Todo {
 interface TodoProps {
   task: Todo;
   toggleComplete: (id: string) => void;
+  deleteTodo: any;
+  editTodo: any;
 }
 
-const Todo: React.FC<TodoProps> = ({ task, toggleComplete }) => {
+const Todo: React.FC<TodoProps> = ({
+  task,
+  toggleComplete,
+  deleteTodo,
+  editTodo,
+}) => {
   return (
     <div className="Todo">
       <p
@@ -23,8 +30,11 @@ const Todo: React.FC<TodoProps> = ({ task, toggleComplete }) => {
         {task.task}
       </p>
       <div>
-        <FontAwesomeIcon icon={faPenToSquare} />
-        <FontAwesomeIcon icon={faTrash} />
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          onClick={() => editTodo(task.id)}
+        />
+        <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />
       </div>
     </div>
   );
