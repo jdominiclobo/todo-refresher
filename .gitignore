@@ -13,6 +13,11 @@ dist-ssr
 *.local
 
 package-lock.json
+package.json
+tsconfig.json
+tsconfig.node.json
+.eslinttrc.cjs
+
 
 # Editor directories and files
 .vscode/*
