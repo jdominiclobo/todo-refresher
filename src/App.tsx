@@ -1,11 +1,7 @@
-import './App.css'
+import TodoWrapper from "./components/TodoWrapper";
 
 function App() {
-
-  return (
-    <h1>ToDo</h1>
-  
-  )
+  return <TodoWrapper />;
 }
 
-export default App
+export default App;

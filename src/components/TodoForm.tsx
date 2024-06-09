@@ -1,8 +1,34 @@
+import React, { useState } from "react";
 
-const TodoForm = () => {
-  return (
-    <div>TodoForm</div>
-  )
+interface TodoFormProps {
+  addTodo: (todo: string) => void;
 }
 
-export default TodoForm
+const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    addTodo(value);
+    setValue("");
+    console.log(value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        placeholder="Add a todo"
+      />
+      <button type="submit">Add</button>
+    </form>
+  );
+};
+
+export default TodoForm;
